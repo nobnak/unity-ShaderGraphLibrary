@@ -1,0 +1,16 @@
+{
+  "author": {
+    "name": "Nakata Nobuyuki",
+    "email": "nobu.nakata@gmail.com"
+  },
+  "name": "jp.nobnak.shader_graph_library",
+  "displayName": "Shader Graph Library (nobnak)",
+  "version": "0.0.1",
+  "samples": [
+    {}
+  ],
+  "dependencies": {
+    "com.unity.render-pipelines.core": "14.0.12",
+    "com.unity.mathematics": "1.2.6"
+  }
+}

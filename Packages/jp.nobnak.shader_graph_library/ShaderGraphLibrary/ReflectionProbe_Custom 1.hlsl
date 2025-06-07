@@ -1,5 +1,5 @@
-#ifndef __PerceptualRoughnessToMipmapLevel__
-#define __PerceptualRoughnessToMipmapLevel__
+#ifndef __PerceptualRoughnessToMipmapLevel_Custom__
+#define __PerceptualRoughnessToMipmapLevel_Custom__
 
 #ifndef SHADERGRAPH_PREVIEW
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"

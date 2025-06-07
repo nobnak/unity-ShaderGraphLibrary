@@ -5,7 +5,7 @@
   },
   "name": "jp.nobnak.shader_graph_library",
   "displayName": "Shader Graph Library (nobnak)",
-  "version": "0.0.3",
+  "version": "0.1.1",
   "samples": [
     {}
   ],

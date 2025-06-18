@@ -37,21 +37,25 @@ float4 steepstep(float4 min, float4 max, float4 s, float4 x)
     return t <= 0.5 ? out0 : out1;
 }
 
-#define FP(x, n, c) (pow(x, c) / pow(n, c - 1))
+#define FP(x, n, c) saturate(pow(x, c) / pow(n, c - 1))
 
 float pivotstep(float min, float max, float p, float s, float x) {
     p = saturate((p - min) / (max - min));
-    x = saturate((x - min) / (max - min));
+    x = (x - min) / (max - min);
     float c = 2.0 / (1 - s) - 1;
     
-    return x < p ? FP(x, p, c) : 1 - FP(1 - x, 1 - p, c);
+    return (x <= 0 || 1 <= x || p <= min)
+        ? saturate(x)
+        : (x < p ? FP(x, p, c) : 1 - FP(1 - x, 1 - p, c));
 }
 float4 pivotstep(float4 min, float4 max, float4 p, float4 s, float4 x) {
     p = saturate((p - min) / (max - min));
-    x = saturate((x - min) / (max - min));
+    x = (x - min) / (max - min);
     float4 c = 2.0 / (1 - s) - 1;
     
-    return x < p ? FP(x, p, c) : 1 - FP(1 - x, 1 - p, c);
+    return (x <= 0 || 1 <= x || p <= min)
+        ? saturate(x)
+        : (x < p ? FP(x, p, c) : 1 - FP(1 - x, 1 - p, c));
 }
 
 #endif

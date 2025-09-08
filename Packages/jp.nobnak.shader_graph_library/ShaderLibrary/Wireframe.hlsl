@@ -8,7 +8,9 @@ float wireframe(float4 bary, float gain)
 	float4 d = fwidth(bary);
 	float4 l = smoothstep(0, gain * d, bary);
 	float lmin = min(min(l.x, l.y), min(l.z, l.w));
-    return saturate(1 - lmin) > CUTOFF;
+	//return saturate(1 - lmin);
+	//return smoothstep(CUTOFF - 0.1, CUTOFF + 0.1, 1 - lmin);
+	return step(CUTOFF, 1 - lmin);
 }
 float wireframe(float3 b, float gain)
 {
